@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insertar Producto</title>
+</head>
+<body>
+
+<h2 style="text-align:center">Actualizar productos</h3>
+
+<div style="margin-left:500px">
+
+<form name="forml" method="get" action="ControladorProductos">
+<input type="hidden" name="instruccion" value="actualizarBBDD">
+<input type="hidden" name="CArt" value="${PorductoActualizar.cArticulo}">
+
+<table>
+
+<tr>
+<td>Seccion</td>
+<td> <input type="text" name="seccion" id="seccion" value="${PorductoActualizar.seccion}"></td>
+</tr>
+
+<tr>
+<td>Nombre Articulo</td>
+<td> <input type="text" name="NArt" id="NArt" value="${PorductoActualizar.nArticulo}"></td>
+</tr>
+
+<tr>
+<td>Fecha</td>
+<td> <input type="text" name="fecha" id="fecha" value="${PorductoActualizar.fecha}"></td>
+</tr>
+
+<tr>
+<td>Precio</td>
+<td> <input type="text" name="precio" id="precio" value="${PorductoActualizar.precio}"></td>
+</tr>
+
+<tr>
+<td>Importado</td>
+<td> <input type="text" name="impor" id="impor" value="${PorductoActualizar.importado}"></td>
+</tr>
+
+<tr>
+<td>Pais Origen</td>
+<td> <input type="text" name="POri" id="POri" value="${PorductoActualizar.pOrigen}"></td>
+</tr>
+
+<tr>
+<td><input type="submit" name="envio" id="envio" Value="Enviar"></td>
+<td><input type="reset" name="borrar" id="borrar" Value="Reestablecer"></td>
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -67,11 +67,69 @@ public class ControladorProductos extends HttpServlet {
 		break;
 		}
 		
+		case "cargar": {
+			try {
+				cargaProductos(request,response);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+		break;
+		}
+		
+		case "actualizarBBDD": {
+			try {
+				actualizarProductos(request,response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		break;
+		}
+		
 		default:
 			obtenerProductos(request,response);
 		}
 		
 	}
+
+	private void actualizarProductos(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String CodArticulo = request.getParameter("CArt");
+		String Seccion = request.getParameter("seccion");
+		String Nomarticulo = request.getParameter("NArt");
+		
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+		Date Fecha= null;
+		 try {
+			Fecha = formatoFecha.parse(request.getParameter("fecha"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			 
+		 
+		double Precio = Double.parseDouble(request.getParameter("precio"));			
+		String Importado = request.getParameter("impor");
+		String POrigen = request.getParameter("POri");
+		
+		 Producto ProductoActualizado = new Producto(CodArticulo, Seccion, Nomarticulo, Precio, Fecha, Importado, POrigen);
+		 
+		 modeloProducto.actualizarProducto(ProductoActualizado);
+		 obtenerProductos(request, response);
+		
+	}
+
+
+	private void cargaProductos(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String CodArticulo = request.getParameter("CArticulo");
+		
+		Producto elProdcuto = modeloProducto.getProducto(CodArticulo);
+		
+		request.setAttribute("PorductoActualizar",elProdcuto);
+		
+		RequestDispatcher dispacher = request.getRequestDispatcher("/actualizarProducto.jsp");		
+		dispacher.forward(request, response);
+	}
+
 
 	private void agregarProductos(HttpServletRequest request, HttpServletResponse response) {
 			String CodArticulo = request.getParameter("CArt");

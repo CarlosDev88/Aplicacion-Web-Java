@@ -52,10 +52,17 @@ List<Producto> losProdcutos = (List<Producto>) request.getAttribute("LISTAPRODUC
 <td class="cabecera">PRECIO</td>
 <td class="cabecera">IMPORTADO</td>
 <td class="cabecera">PAIS DE ORIGEN</td>
+<td class="cabecera">ACTUALIZA</td>
 
 </tr>
 
 <c:forEach var="temp" items="${LISTAPRODUCTOS}">
+
+<c:url var="linkTemp" value="ControladorProductos">
+
+<c:param name="instruccion" value="cargar"></c:param>
+<c:param name="CArticulo" value="${temp.cArticulo}"></c:param>
+</c:url>
 <tr>
 <td class="fila">${temp.cArticulo}</td>
 <td class="fila">${temp.seccion}</td>
@@ -64,6 +71,7 @@ List<Producto> losProdcutos = (List<Producto>) request.getAttribute("LISTAPRODUC
 <td class="fila">${temp.fecha}</td>
 <td class="fila">${temp.importado}</td>
 <td class="fila">${temp.pOrigen}</td>
+<td class="fila"><a href="${linkTemp}">Actualizar</a></td>
 </tr>
 
 </c:forEach>
