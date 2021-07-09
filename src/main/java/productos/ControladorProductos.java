@@ -173,7 +173,7 @@ public class ControladorProductos extends HttpServlet {
 			 try {
 				modeloProducto.agregarElNuevoProducto(nuevoProducto);
 			} catch (Exception e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 
