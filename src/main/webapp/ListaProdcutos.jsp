@@ -8,7 +8,14 @@
 <meta charset="ISO-8859-1">
 <title>Vista</title>
 </head>
-<body>
 
+<%
+//obteniiendo lista de prodcutos
+
+List<Producto> losProdcutos = (List<Producto>) request.getAttribute("LISTAPRODUCTOS");
+%>
+
+<body>
+<%= losProdcutos %>
 </body>
 </html>

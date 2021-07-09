@@ -1,7 +1,5 @@
 package productos;
 
-import java.util.ArrayList;
-
 import javax.sql.DataSource;
 
 import java.sql.Connection;
@@ -30,8 +28,16 @@ public class ModeloProducto {
 		rs = miStatement.executeQuery(consulta);
 
 		while (rs.next()) {
-			productos.add(new Producto(rs.getString(0), rs.getString(1), rs.getDouble(2), rs.getDate(3),
-					rs.getString(4), rs.getString(5)));
+
+			String cArticulo = rs.getString(1);
+			String seccion= rs.getString(2);
+			String nArticulo= rs.getString(3);
+			double precio= rs.getDouble(4);
+			Date fecha= rs.getDate(5);
+			String importado= rs.getString(6);
+			String pOrigen= rs.getString(7);
+
+			productos.add(new Producto(cArticulo, seccion, nArticulo, precio, fecha, importado, pOrigen));
 		}
 
 		return productos;
