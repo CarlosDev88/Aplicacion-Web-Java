@@ -21,7 +21,14 @@
 .fila{
 	text-align:center;
 	background-color:#5882fa;
-	
+}
+
+table{
+	float:left;
+}
+
+#contenedorBoton{
+	margin-left:1000px;
 }
 
 </style>
@@ -62,5 +69,9 @@ List<Producto> losProdcutos = (List<Producto>) request.getAttribute("LISTAPRODUC
 </c:forEach>
 
 </table>
+
+<div id="contenedorBoton">
+	<input type="button" value="Insertar Registro" onclick="window.location.href='insertaProducto.jsp'"/>
+</div>
 </body>
 </html>
