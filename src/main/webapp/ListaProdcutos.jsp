@@ -15,7 +15,7 @@
 	font-size:1.2em;
 	font-weight:bold;
 	color:#ffffff;
-	background-color: #818181;
+	background-color: #6D6D6D;
 }
 
 .fila{

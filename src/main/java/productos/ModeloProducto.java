@@ -45,7 +45,7 @@ public class ModeloProducto {
 		return productos;
 	}
 
-	public void agregarElNuevoProducto(Producto nuevoProducto) {
+	public void agregarElNuevoProducto(Producto nuevoProducto) throws Exception {
 		Connection miConexion = null;
 		PreparedStatement miStatement = null;
 
@@ -72,6 +72,9 @@ public class ModeloProducto {
 			miStatement.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			miStatement.close();
+			miConexion.close();
 		}
 
 	}
@@ -146,12 +149,15 @@ public class ModeloProducto {
 			miStatement.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			miStatement.close();
+			miConexion.close();
 		}
 		
 		
 	}
 
-	public void eliminarProducto(String codArticulo) {
+	public void eliminarProducto(String codArticulo) throws Exception {
 		Connection miConexion = null;
 		PreparedStatement miStatement = null;
 		
@@ -167,6 +173,9 @@ public class ModeloProducto {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			miStatement.close();
+			miConexion.close();
 		}
 		
 	}

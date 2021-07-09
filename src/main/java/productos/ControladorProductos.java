@@ -170,7 +170,12 @@ public class ControladorProductos extends HttpServlet {
 			
 			 Producto nuevoProducto = new Producto(CodArticulo, Seccion, Nomarticulo, Precio, Fecha, Importado, POrigen);
 			 
-			 modeloProducto.agregarElNuevoProducto(nuevoProducto);
+			 try {
+				modeloProducto.agregarElNuevoProducto(nuevoProducto);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
 			 
 			 obtenerProductos(request, response);
 		
