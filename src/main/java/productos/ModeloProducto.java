@@ -151,4 +151,24 @@ public class ModeloProducto {
 		
 	}
 
+	public void eliminarProducto(String codArticulo) {
+		Connection miConexion = null;
+		PreparedStatement miStatement = null;
+		
+		try {
+			miConexion = origenDatos.getConnection();
+			String consulta ="DELETE FROM productos WHERE CODIGOARTICULO=?";
+			
+			miStatement = miConexion.prepareStatement(consulta);
+			
+			miStatement.setString(1,codArticulo);
+			
+			miStatement.execute();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

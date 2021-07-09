@@ -87,11 +87,30 @@ public class ControladorProductos extends HttpServlet {
 		break;
 		}
 		
+		case "eliminar": {
+			try {
+				elimiarProducto(request,response);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+		break;
+		}
+		
+		
 		default:
 			obtenerProductos(request,response);
 		}
 		
 	}
+
+	private void elimiarProducto(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String CodArticulo = request.getParameter("CArticulo");
+		
+		modeloProducto.eliminarProducto(CodArticulo);
+		 obtenerProductos(request, response);
+	}
+
 
 	private void actualizarProductos(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String CodArticulo = request.getParameter("CArt");
