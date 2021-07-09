@@ -1,4 +1,4 @@
-# Aplicacion-Wen-Java
+# Aplicacion-Web-Java
 
 Implementación de una aplicación cliente servidor en java enterprise edition usando el estilo arquitectónico Modelo Vista Controlador, 
 para lo que se usó una base de datos existente en MySQL que representa el modelo, 
